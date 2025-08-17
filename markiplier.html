@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markiplier - King of Five Nights at Freddy's</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: #0f0f0f;
+            color: #f1f1f1;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #ff0000 0%, #6e0000 100%);
+        }
+        
+        .mark-face {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .video-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+        }
+        
+        .video-card {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ff0000;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-90 fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-red-600 font-bold text-2xl">MARKIPLIER</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="#home" class="nav-link text-white px-3 py-2 text-sm font-medium">Home</a>
+                            <a href="#about" class="nav-link text-white px-3 py-2 text-sm font-medium">About</a>
+                            <a href="#videos" class="nav-link text-white px-3 py-2 text-sm font-medium">Videos</a>
+                            <a href="#projects" class="nav-link text-white px-3 py-2 text-sm font-medium">Projects</a>
+                            <a href="#charity" class="nav-link text-white px-3 py-2 text-sm font-medium">Charity</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6 space-x-4">
+                        <a href="https://www.youtube.com/@markiplier" target="_blank" class="social-icon text-red-600 hover:text-white">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com/markiplier" target="_blank" class="social-icon text-blue-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/markiplier/" target="_blank" class="social-icon text-pink-500 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.twitch.tv/markiplier" target="_blank" class="social-icon text-purple-500 hover:text-white">
+                            <i class="fab fa-twitch text-xl"></i>
+                        </a>
+                        <a href="https://onlyfans.com" target="_blank" class="social-icon text-pink-600 hover:text-white">
+                            <i class="fas fa-heart text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black bg-opacity-95">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-white">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-white">About</a>
+                <a href="#videos" class="block px-3 py-2 text-base font-medium text-white">Videos</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-white">Projects</a>
+                <a href="#charity" class="block px-3 py-2 text-base font-medium text-white">Charity</a>
+                <div class="flex space-x-4 px-3 py-2">
+                    <a href="https://www.youtube.com/@markiplier" target="_blank" class="social-icon text-red-600 hover:text-white">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/markiplier" target="_blank" class="social-icon text-blue-400 hover:text-white">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/markiplier/" target="_blank" class="social-icon text-pink-500 hover:text-white">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.twitch.tv/markiplier" target="_blank" class="social-icon text-purple-500 hover:text-white">
+                        <i class="fab fa-twitch text-xl"></i>
+                    </a>
+                    <a href="https://onlyfans.com" target="_blank" class="social-icon text-pink-600 hover:text-white">
+                        <i class="fas fa-heart text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">MARKIPLIER</h1>
+                    <p class="text-xl md:text-2xl mb-8">The King of Five Nights at Freddy's and your favorite screaming YouTuber</p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="https://www.youtube.com/@markiplier" target="_blank" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full font-bold flex items-center">
+                            <i class="fab fa-youtube mr-2"></i> Subscribe
+                        </a>
+                        <a href="#videos" class="bg-white hover:bg-gray-200 text-black px-6 py-3 rounded-full font-bold">
+                            Watch Videos
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEBUQEBAVFRAVFRUVFRUVDxUVEBUVFRYWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGi0dHR8rLS0tLS0rLS0tLS0tLS0tKy0tLS0tLS0rLS0tLS0tLS0tLS0tLS0rLS4tLS0tNy0tLf/AABEIAKwBJQMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAABAAIDBAUGB//EADkQAAIBAgQDBgQEBQQDAAAAAAABAgMRBBIhMQVBUQYiYXGBkROhsfAyQsHRBxRS4fEjJDOCFWKS/8QAGwEAAwEBAQEBAAAAAAAAAAAAAQIDBAAFBgf/xAApEQACAgEDAwQCAgMAAAAAAAAAAQIRAwQSITFBUQUTIjJhocHhI3GB/9oADAMBAAIRAxEAPwDzkWYI1mRxPvbaHKYc4wJyxo7fLyOzhzjBDbEd7j8js7DnY0VhlBA3vyOzsOdgSCkMoIHuPyHMxJsKQbB2A9x+QJ+JWxmIUVa5NiaygvHktvdnP42o5bu/k00HajzNfr3jWxPkbi8U5d1Pu/XzKjQ4a2OuD5uc5Tdydhg9V0JqtTN8/wCw7C4GU9loaH/hp9AOSOUJPsZUoaX/AMkRo1uHyjumVJ0vCx1oDi0QCHuDGBFoMZWNDBY5w0l+F6/uZw5SA1ZXDmlilui6OroV1JKzvfZ/oS3Ob4fi3CVvyvkdHHXVbMTafV6HW+/H8oNxXFYRzgegpMVwZhCEcQ2xXBcIBXE62K4riAI4htiuOGD0DacmIARFEgESEwoDHoh2AEAQpAEGwrBQaAIcgJDhqBYkhyQkxyaGoDsKRFia6pxu/bm/AlcluYvFqjccz5vTolb6nPgyarM8UG+5Rr4hzm3J/svIiqSurKKVvf1G0Fd3ey1Hyjz6/TkA+XlJydshsWMFh880htOlfXkb/ZzBZpOVvD9WLN0h8cLka2AwSikrF5UUTxo2A7IzqRv2mfi8OnyMfEcORu4hlSaO3MDgn1MCeCM7FYWx09SmZ2NpaDRm7Jzxpo5wQ+rGzsMNJgaphRtcLx/dyy5baO9jFJ8JUyyT9/IDNGlzyxZLTOpp1Yy2evTmFkNGC0a+vXT9fkWWgo+uwzclyMAOYANGgAggEaCAA4AlHAHjB6BQYiER1HqINCPJTAhMKEx6J9hqHWEkEZCgHJAQ5BAwWIpX5E42JzjYkm1HgjWYf3iVIcD20COWVdSvKMnp4oyOLbJeF/fQ6C/MwOJLM9NrfT/LO2pM8n1LLJxpvqUKPJdd/ovlf3Hyd3bkKnC134aeun6/IGFp5ppeKCzxUjof5FfDhGK70sqXV3u2/D+51vCuGqlTUUtbalHA4O1Sn4W/+mtfkdRlX3sZpuzdijRmYiDSM2tUN7iCSjoc1XlqTRcbWZXHzkNQQEEkUMWjUnYpYqIULI5nGrUrF/iULFE1R6Hm5F8hBi7MArDCo6PhVbuxvta3tsaZzXD6qto7SXtJeK5nQ4eV4/d14HRPqPT826CQ5oax7Q1hPUTGiEIVoYAggEaCAeNHChiV6j1ECe4jjK3ySITChMoU7CsGwLjjhGBIckBDojIViY2O48ZEYnP6MkQ6w1DuQCSfBTxOIWR5erv6GSpOSlfdJtehbx6cH3XaLvfX3KFKe7e23ndpW9hT53U5JSm7LNOi7ardaeNne3zY7hVDNWWVfmSXqQ0Kvccel2jf7EKKxDlNaRjm+iuLLoRx9TrcNTjBty/DSj7ye/zv7mTje0UlfJFtLotDf4UoznJSSyyV9fd7+pg8Sx0alWVHDUnVlG7llXdgr21ly1svUkqNLb80jFrdpa8n/wAbS8UwU8fOWriZq4zKUklSST21ez2exo4fF3dmrSW6Z01XYGOV9GXM2lxk6lkbNPBfEo/Ftouhy/EKtnbxJLk0PhWDEY/LsrlCXE5vVw05aFh4iEE+65NK7tyQyPF6cu66cl7MtFfgyynz1M7FYhTWujKJq4mnCesLePUzqsbFYkMifUjH0ua8BjFF2GETpk1LT6rzR0+AleN+tn8tfmjm0+6vNr0Z0mChlpx13V/fkBdT2vS7U34ostDGPuNY59DEaKwRCsogACIVhAOAOQrDErVI6hH1EIBCUOQIVgoQ41CCAIRWghQAoIjQWMjuPY2IUSy/QegzkkrsSG1YZotHMzv6OjPxcXJXT0UUvXmY+JlZKKfi347JfX3NHHV8yUY2T10Xhu/D3M+eHd7c+gp8zldzbJMLBu78Pm72+h0vZ6Hdll/FJ5f+qt+/0MWnDJHInq9X5W/b6nadjMIlTlV5qyj5tv8Aa4k3SHwxtmqsM2lBNxWW0mtJbFXFYChCKVF5JJWclpJ+bW5sVKLei9WY2Pjl0e5mto2bbOSxXC4QleMnptrotb7DKGGvPNeTk/mbNWkmzpuzHBozTlbUbfYFjSBwrCyhgHnWrbaXQ4Di0by9T2biOFtQa8zyTi8O8/M6KKNJxoxo01rq+9o+nkSwwUH3s7b8W2/n5FiilfUuRpIdzIe0jn6lHJK8fH1KU+82+RtcToN2tst/UzYR7noUi+CE4c0UWALAUMxLRV2kb1GrOVkvDexz8JWZv4DGuyul53+or6nremyjbTdF+nBrWTv8l7ErBHULHPpsapcDRCEArQhCCIxqA0FCCKFIhqvUQyq9QnGaUuRyDYSHILZSKGiHWAFMLiAcgBQwjQeQ1BuNQyM+dVAkQ9MZEFVNp235eZzIR+pi8RounK6t/n/AKNZS1lZWsklu+t2W8ZONSFpaS58mn5GS4NOwh89qsajkddGXaakmqjXdk2k/lfy1PSeyeH/29Jf1RzPxd2jha2OjKKy2d76f022X31PSew9PPhqU1soqPrd3M+Rj44pHSywajS25fQ4fjcdT0Wu06Tvv93PPOOfifmJIvAwHI7rsVjIKm8zszgqsuh33Z3g8YYelUlUinNKpK71722ngrCxu+CkkmuS5xrHxUWjy/iveb8zvO1cVGPdlddTg67uh49RXVcGXSl3rGhS1RQxCWrRbwTvHUMiaBXjuuRz1RZbx5Xdjo8Q9DBxm7uPBksq7mZJAQ6SHSpNK/IvZi2vlkaRpcLu3ZNeTTKcaL08bfP8AwbnD8NGacrdEuunkBm7QYJSyKjRg9PEcxtOmohGProJ1yIVgiA2USEIQbE2OkCwQiANRUqLURJVjqI6zHKDsUR6GofE5stBCBYfYFjkyjiNsAeNsMmI4gGoeR8yiZk1KqBJEeRxHo4hjXxKWPpfmtm6q2voU5VKc762bT0fVfqamKnaLl0OWnPv3a1vfX3Frk8j1GoOvJK6yjdRbT8j2D+G2K/2kU3sn56O1/K7PGE7+h6n/AA3xUZUJQ0vlaeq2bfr1+RPKuDz8D5aPQcRiVl3/ABL9OXyOG41TlKTUfVnSTqd7ysl6x2Of4xiMtW35VCUvOT2+pnZqi6MvCcIcn3jS45Rl8GEY1pQUUl3ZNPwWjMTh3Eak6jS5vr7l7H4GpJPNLTxuFRrqFZL6GTieNv4fwak5VLfhlJrPbo3+bz3MDHY2TWWKt1fMs8TwclLRevkUpUJau1ika6k5OfQZQrN2TZq4apYxJ4drUlhXaDKN9BFkrhmvXkY+LRo1J2V3zM3FyWVvwYIBmzNi7ssyhfur7RTTNnhsVvvJrTwRdi6SHuvaMpcPc59IRsrm7GKSsvIFKKSSWw64Uj6fS6WOJWurEJCEczekIIkERsokAIbCEbHSBYLCBi2NRHMQKjEMZpPkaiSCGxJaaBJlMUbYbAsSNAaFTNDgRtAsSNDWh0yTiRtEL3LDRXluVizBrFUCSI4jQ6IWRxL4EWOo54WvzTeu66GFVSzvMnblpe1jpDLxcHmknF5d1b9QHkep4mmsi5MStZu0dvvc67sBi3Trza/Bon5N2T97HMOjZ3+7nT/w/wAPmnUurpuMX03YmT6nk4r9w9I4jO0nKMu7ZX8nf9zne0abh8SG+qfWzZLTxUoZqFaLUotKLcbNwu1Fr290zQnhFVg4p6WVupnZqs5Ts7wCVSeebklyyyaa9jYxvAJwvarUlG3OV3v47mxg6CpxVntp7bjcbi+6duHgqOExuCqU27yzdE7r6GHWhUvqzoON4pt3sY9CrJlE+LBPIm6orRoTtrJgp4eV7PVGhGD5gxLyx0O3EpQXUgx09op7W8jNxtTTLzH1q+tylNuTKRiRnPjjuS4KC1baVlze/l4ljhudyvGPd68kQ06UNHJu63VvozVwuLpxsobPlzv1HbNejxLdHdLbXh8s1E9BATCE+sigoIEFCtlkFBEhCNlEgiEERsokKwLDrAYlha4KtXcQaq1EPZhmvkx0SxRRDBFmgic5G3Tx5Q5xA4kziNcSakbpYyFoa0TOIxoopEJQIZFWW5ckinPcvjZ5WvVQChyGosYbCzqSy04SnLpGLb+RRkMNLHbI0xv8nKq1FXk3tFJu/kkdpwDsDVq3nin8KlGLeVSTqya2XNR9dTreA8Dw9GjVqQp2i7RzyblNxT72r2V7Lx1Dts8nXa7Ak4r5P8dDx+p2dxMHUrKl3KGXNe2VSlHNbpdJo6r+HfCpRVTN+K8W/ds9IlgKVeOJwrVryqaLT8a0ZyvYOtF05QelaDcKi53i2r+6ZDPxSPI0z3Nsb2l4eqlpxX+pG9nto7Nxdt07L5GT2e4mlfTvO7kpfly23XV6nWY+m76HLcY4ZJ3qUZNSjq437slzX30JRfZl5x7o23SSjtZz73jyu/mc5xO6bTegsRx1TpK0nmirWvrF3Taf3zMjG8Rzq9+bdm+Vt/qc4HLIZuPerT6lWnoMr13e9uZWniVd6jKDFc4miZ3EKyta5XqYt6q5WknUl4cx4wrlkp5L4QKNNSkk9m7GnRwihJKMU93e+tujKVRWWmljcwlPuqXNpO5VOyunnDHL5L/vcbHD3d5JLwWvqyXIr3svYldPTQjYx9Jp3inG4ciCgIchWzbEKCgIchGysQoKAFE2yyQUEQhGyiQQMIAWFohqIQ9oQxBwtggizQRXgWqJGbNWnXJIIQiaN4GiOSJRRpuTUYpuTaSSV229El43HiyU4qrKs0WeE9mcVjHmo0n8O9viSeWndb957+lz0Ts5/DdJqpjnfn8GL08M8lv5LpuzussIRjCEVGEEoxikkklySR6GHE1zI+K9W9YxP/Hg+X57f2cFwz+HVChTzVn8au7b3jRj4KO8vN+x0mEwcKUFHKkkrWjFRi/+qLOLxJl1sS27Gikj5rJnyZPs7JuIYm8cie+/7fMOMqRjhXDZOGX2d19+JQk9d/L2I+L1+6kvvQVskD+ddKdDE8pwUKni492X0ucvxSf/AI7jMpX/ANvibVV0y1Pxe07v1Ohwi+NQqUfzRbqQ+kl8k/czeOcNfEMBaCvi8LeVNfmnB/jh7K68UiGWO5FsE9sjdxcbq6MisrczO7IdoFWpKjN/6kNFfdpfqaeJ5mQ9A5fjHZ5VW50ZZKmjf9E+uY43iNGvSlapSab5q7TvzTPQsTUyu6ZSxeLzLUpGbRGeJPpwebyxDV7/AGmV6ta721PQPiw1ThF6WWi++SMOvQjduyv5FFNeCTxPyc7Rw0pvZpdS/wDAUFZF5QsVKrOcrDGCiUK70sdFgV/owf8A6r6HN1U27LfZHXUqOWEY9El7DwEmKKH5E90HKPSKDQySi7i6IJYT+l+jIJ0nHdfsaEUSJHbUz08Hq2WHE/kv2ZSCXauET1jo+nL+xVqUnHdfsSnCSPf02txZ18Xz47gChqCmRZ6CY8KG3CTZVBAIQAsaxCYhrJhgizSRBEsUyEmbMEaHCEbvYzhVPF4uNKrfJlcnldm7cr9Axi5OkUz5o4ccskukVZR4Nwiti6nwqEMz5vaEV1lLkj1Tsr2KpYKXxqklVr/lk42hT65V18X8jo+H4KnQpqFGnGEFyirer6vxYcTK0bnpYtPGHL5Z+fep+v5tXcMfwh+3/t/wv2QYrE20MnE4six1Z5tzKq1HqaDwCWvXu7DYxdipRleX31NZRWQATMrVLFHE1c2hJjXZ/MoKT+gjCS4HEulUUlyZbxEnh6scTR/4p7r+l84sy6v6mnwaed/ClrTno0/DZrowHGH2r7P3k+I4Bb96tSj+JS5zgl816oo8O4+qqSk9TfwFeVGtKnB92+zMPt1wynTX8xTjlqOVpZdIyvza6+RDJjXVGrDmf1Y7HTTV0YcqwzB4mTjZsjr7mc0sUpIgmrkkUS5VluNYpmYl2M6c7FviErF3gWBhKCqyV5Xdr7K3RDxVk5y2qyDgvCnF/GqLvfljzXi/E2nEfPcNtDSlSMrlbsiaFlJFEkjFHBTIYolUQtBQUHcBRBKHsSIRRDKTT4KNXBrlp9CrVpOO/vyNexHVpqSaZOeGMla4PZ0fq+WElHJ8l+zKTDcYhyPPaPrVILYkAa2KM5DhEdSTQhrJOaTP/9k=" alt="Markiplier" class="mark-face w-64 md:w-96">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">ABOUT MARKIPLIER</h2>
+            <div class="md:flex items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Markiplier_%2829479437367%29_%28cropped%29_2.jpg/250px-Markiplier_%2829479437367%29_%28cropped%29_2.jpg" alt="Markiplier portrait" class="rounded-lg shadow-xl w-64 h-64 object-cover">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-lg mb-6">
+                        Mark Edward Fischbach, better known as Markiplier, is an American YouTuber, actor, and comedian. He is best known for his Let's Play videos, vlogs, and comedic sketches.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Born on June 28, 1989, in Honolulu, Hawaii, Markiplier began his YouTube career in 2012. His channel quickly grew due to his energetic and humorous commentary, particularly on horror games like Five Nights at Freddy's.
+                    </p>
+                    <p class="text-lg mb-6">
+                        With over 34 million subscribers and billions of views, Markiplier is one of the most popular gaming YouTubers. Beyond gaming, he's involved in charity work, voice acting, and has even created his own games.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+                <div class="bg-gray-800 p-4 rounded-lg text-center">
+                    <div class="text-red-500 text-3xl font-bold">34M+</div>
+                    <div class="text-gray-300">Subscribers</div>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg text-center">
+                    <div class="text-red-500 text-3xl font-bold">10B+</div>
+                    <div class="text-gray-300">Views</div>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg text-center">
+                    <div class="text-red-500 text-3xl font-bold">4,000+</div>
+                    <div class="text-gray-300">Videos</div>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg text-center">
+                    <div class="text-red-500 text-3xl font-bold">2012</div>
+                    <div class="text-gray-300">Since</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="py-16 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">POPULAR VIDEOS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Video Card 1 -->
+                <div class="video-card bg-gray-800 rounded-lg overflow-hidden group relative">
+                    <div class="relative pb-[56.25%] cursor-pointer" onclick="playVideo(this, 'TM_J47UfIzE')">
+                        <img src="https://i.ytimg.com/vi/TM_J47UfIzE/maxresdefault.jpg" alt="Markiplier & Lixian MEGA COMPILATION 2021" class="absolute h-full w-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">Markiplier & Lixian MEGA COMPILATION 2021</h3>
+                        <p class="text-gray-400 mb-4">Best moments from Markiplier and his editor Lixian</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">17M views</span>
+                            <span class="text-gray-400">Jan 2021</span>
+                        </div>
+                    </div>
+                    <div class="video-embed absolute inset-0 hidden z-10 bg-black"></div>
+                </div>
+                
+                <!-- Video Card 2 -->
+                <div class="video-card bg-gray-800 rounded-lg overflow-hidden group relative">
+                    <div class="relative pb-[56.25%] cursor-pointer" onclick="playVideo(this, 'Mt5Uat93SOY')">
+                        <img src="https://i.ytimg.com/vi/Mt5Uat93SOY/maxresdefault.jpg" alt="ANIME DATING SIMULATOR" class="absolute h-full w-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">ANIME DATING SIMULATOR (nothing weird happens)</h3>
+                        <p class="text-gray-400 mb-4">MiSide - Part 1</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">5M views</span>
+                            <span class="text-gray-400">Dec 2024</span>
+                        </div>
+                    </div>
+                    <div class="video-embed absolute inset-0 hidden z-10 bg-black"></div>
+                </div>
+                
+                <!-- Video Card 3 -->
+                <div class="video-card bg-gray-800 rounded-lg overflow-hidden group relative">
+                    <div class="relative pb-[56.25%] cursor-pointer" onclick="playVideo(this, 'WSyhc4RLsc0')">
+                        <img src="https://i.ytimg.com/vi/WSyhc4RLsc0/maxresdefault.jpg" alt="Cleany's Window Service" class="absolute h-full w-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">Cleany's Window Service</h3>
+                        <p class="text-gray-400 mb-4">Markiplier's hilarious window cleaning adventure</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">4.5M views</span>
+                            <span class="text-gray-400">Dec 2023</span>
+                        </div>
+                    </div>
+                    <div class="video-embed absolute inset-0 hidden z-10 bg-black"></div>
+                </div>
+                <!-- Video Card 4 -->
+                <div class="video-card bg-gray-800 rounded-lg overflow-hidden group relative">
+                    <div class="relative pb-[56.25%] cursor-pointer" onclick="playVideo(this, 'dlSw0OicMII')">
+                        <img src="https://i.ytimg.com/vi/dlSw0OicMII/maxresdefault.jpg" alt="FNAF 4" class="absolute h-full w-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">ARE YOU BRAVE ENOUGH? | Five Nights at Freddy's 4 - Part 1</h3>
+                        <p class="text-gray-400 mb-4">The scariest FNAF game yet! Can I survive the night?</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">52M views</span>
+                            <span class="text-gray-400">Jul 2015</span>
+                        </div>
+                    </div>
+                    <div class="video-embed absolute inset-0 hidden z-10 bg-black"></div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.youtube.com/@markiplier/videos" target="_blank" class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-bold">
+                    View All Videos <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">MARKIPLIER'S PROJECTS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://i.ytimg.com/vi/QD7QU0UvCUM/maxresdefault.jpg" alt="The Edge of Sleep" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">In Space With Markiplier</h3>
+                        <p class="text-gray-400 mb-4">Their lives are in your hands, Captain.</p>
+                        <a href="https://youtu.be/QD7QU0UvCUM" target="_blank" class="text-red-500 font-bold flex items-center">
+                            Watch Now <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://i.ytimg.com/vi/x8E8Ryx49so/maxresdefault.jpg" alt="Iron Lung" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Iron Lung</h3>
+                        <p class="text-gray-400 mb-4">Markiplier stars in this psychological horror short film about a man trapped in a submarine on an alien moon.</p>
+                        <a href="https://youtu.be/x8E8Ryx49so" target="_blank" class="text-red-500 font-bold flex items-center">
+                            Watch Now <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://cloakbrand.com/cdn/shop/files/CLOAK_Logo_Black_2048x2048.png" alt="Cloak Brand Logo" class="w-full h-48 object-contain bg-white p-4">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cloak Brand</h3>
+                        <p class="text-gray-400 mb-4">A premium apparel brand co-founded by Markiplier and Jacksepticeye focusing on high-quality, stylish clothing.</p>
+                        <a href="https://cloakbrand.com/" target="_blank" class="text-red-500 font-bold flex items-center">
+                            Visit Store <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charity Section -->
+    <section id="charity" class="py-16 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">CHARITY WORK</h2>
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="data:image/jpeg;base64,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" alt="Markiplier charity" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h3 class="text-2xl font-bold mb-6">Giving Back to the Community</h3>
+                    <p class="text-lg mb-6">
+                        Markiplier is known for his extensive charity work, having raised millions of dollars for various causes through livestreams and special events.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Some of the organizations he's supported include the Cancer Research Institute, Save the Children, and the Cincinnati Children's Hospital.
+                    </p>
+                    <p class="text-lg mb-8">
+                        His annual charity livestreams often feature special guests, challenges, and incentives to encourage donations from his fanbase.
+                    </p>
+                </div>
+            </div>
+            <div class="bg-red-900 bg-opacity-30 p-6 rounded-lg border-l-4 border-red-600 mt-8">
+                <h4 class="font-bold text-xl mb-2">$3M+ Raised</h4>
+                <p>Markiplier and his community have raised over 3 million dollars for various charities since 2015.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-8 md:mb-0">
+                    <span class="text-red-600 font-bold text-2xl">MARKIPLIER</span>
+                    <p class="text-gray-400 mt-4 max-w-xs">The screaming, gaming, charity-doing, content creating legend of YouTube.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+                    <div>
+                        <h3 class="text-white font-bold mb-4">Navigation</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="#videos" class="text-gray-400 hover:text-white">Videos</a></li>
+                            <li><a href="#projects" class="text-gray-400 hover:text-white">Projects</a></li>
+                            <li><a href="#charity" class="text-gray-400 hover:text-white">Charity</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold mb-4">Social Media</h3>
+                        <ul class="space-y-2">
+                            <li><a href="https://www.youtube.com/@markiplier" target="_blank" class="text-gray-400 hover:text-white">YouTube</a></li>
+                            <li><a href="https://twitter.com/markiplier" target="_blank" class="text-gray-400 hover:text-white">Twitter</a></li>
+                            <li><a href="https://www.instagram.com/markiplier/" target="_blank" class="text-gray-400 hover:text-white">Instagram</a></li>
+                            <li><a href="https://www.twitch.tv/markiplier" target="_blank" class="text-gray-400 hover:text-white">Twitch</a></li>
+                            <li><a href="https://onlyfans.com" target="_blank" class="text-gray-400 hover:text-white">OnlyFans</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400">This is an unofficial fan website. All content belongs to their respective owners.</p>
+                <p class="text-gray-500 mt-2">© 2023 Markiplier Fan Site. Not affiliated with Mark Fischbach.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Play YouTube video
+        function playVideo(element, videoId) {
+            const videoCard = element.closest('.video-card');
+            const embedContainer = videoCard.querySelector('.video-embed');
+            
+            if (embedContainer.classList.contains('hidden')) {
+                // Create iframe
+                embedContainer.innerHTML = `
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <button 
+                        onclick="stopVideo(this)" 
+                        class="absolute top-4 right-4 bg-red-600 hover:bg-red-700 text-white rounded-full w-10 h-10 flex items-center justify-center">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                embedContainer.classList.remove('hidden');
+            }
+        }
+        
+        // Stop video playback
+        function stopVideo(button) {
+            const embedContainer = button.closest('.video-embed');
+            embedContainer.innerHTML = '';
+            embedContainer.classList.add('hidden');
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
